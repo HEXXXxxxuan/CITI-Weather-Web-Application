@@ -1,0 +1,51 @@
+body {
+   background-image: url('../assets/img/Sticker Sky GIF by Josh Rigling.gif');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   min-height: 100vh;
+   margin: 0;
+   padding: 0;
+}
+
+.glass-container {
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(8px);
+   border: 1px solid rgba(255, 255, 255, 0.3);
+   padding: 20px;
+   margin: 20px;
+   border-radius: 10px;
+}
+
+.btn-outline-light {
+   position: relative;
+   overflow: hidden;
+   padding: 10px 20px;
+   color: white;
+   border: 2px solid white;
+   background: transparent;
+   cursor: pointer;
+   transition: all 0.4s ease;
+}
+
+.btn-outline-light::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+   background-color: #2D2D7A;
+   transition: all 0.4s ease;
+   z-index: -1;
+}
+
+.btn-outline-light:hover::before {
+   width: 100%;
+}
+
+.btn-outline-light:hover {
+   background-color: #2D2D7A !important;
+   border-color: #2D2D7A !important;
+   color: white !important;
+}

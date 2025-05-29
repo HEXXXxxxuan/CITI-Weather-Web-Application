@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-detail</title>
+    
+    <!-- Bootstrap 5.3.3 CSS - https://getbootstrap.com/ -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons - https://icons.getbootstrap.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="css/weather-details.css" rel="stylesheet">
+    <!-- Chart.js - For creating responsive charts - https://www.chartjs.org/ -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+ 
+    <button class="btn-back glass-effect" onclick="window.location.href='CITIWeather.html'" title="Back to Cities">
+        <i class="bi bi-arrow-left-circle-fill"></i>
+    </button>
+    
+    <div class="main-container">
+        <div class="head-row d-flex gap-3 p-2">
+            <div class="logo-container glass-effect rounded-3 p-3 d-flex align-items-center justify-content-center" style="width: 30%;">
+                <img src="assets/img/logo.png" alt="Weather Logo" class="img-fluid h-100" style="max-height: 100%;">
+            </div>
+            <div class="city-container glass-effect rounded-3 d-flex align-items-center justify-content-center" style="width: 70%;">
+                <h2 class="text-white mb-0 display-1"></h2>
+            </div>
+        </div>
+        <div class="weather-details d-flex gap-3 p-2 " >
+            <div class="weathercode-and-temperature-container d-flex flex-column gap-3" style="width: 50%;">
+                <div class="weathercode glass-effect rounded-3 d-flex flex-column justify-content-center align-items-center h-48 p-3">
+                    <i class="weather-icon mb-2"></i>
+                    <h2 class="text-white text-center fs-4 mb-0"></h2>
+                </div>
+                <div class="temperature glass-effect rounded-3 d-flex flex-column justify-content-between" style="height: 50%;">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h2 class="text-white display-1"></h2>
+                    </div>
+                    <div class="maxmin w-100 d-flex justify-content-between">
+                        <h3 class="Max text-white mb-0 fs-4">Max: </h3>
+                        <h3 class="Min text-white mb-0 fs-4">Min: </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="wind-precipitation glass-effect rounded-3 d-flex flex-column" style="width: 50%;">
+                <h2 class="text-white mb-4">Today's Conditions</h2>
+                <div class="chart-container flex-grow-1">
+                    <canvas id="windPrecipChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="weather-forecast-container p-2">
+            <div class="glass-effect rounded-3 d-flex flex-column h-100">
+                <h2 class="text-white mb-4">7-Day Forecast</h2>
+                <div class="chart-container flex-grow-1">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+ </body>
+ <script src="js/weather.js"></script>
+</html>

@@ -1,0 +1,203 @@
+.modal-content{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-body {
+    color:white;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.btn-outline-light {
+    position: relative;
+    overflow: hidden;
+}
+ 
+.btn-outline-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2D2D7A;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+ 
+.btn-outline-light:hover::before {
+    width: 100%;
+}
+
+.btn-outline-light:hover {
+    background-color: #2D2D7A !important;
+    border-color: #2D2D7A !important;
+    color: white !important;
+}
+ 
+main {
+    display: grid;
+    gap: 2rem;  
+    grid-template-columns: repeat(5, minmax(250px, 1fr));  
+    overflow-y: hidden; 
+    padding: 50px;  
+}
+
+.form-control.glass-effect {
+    padding: 0.8rem 1.2rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(100, 100, 100, 0.7);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control.glass-effect::placeholder {
+    color: rgba(255, 255, 255);
+}
+
+.form-control.glass-effect:focus {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px);
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(100, 100, 100, 0.7);
+    transition: all 0.3s ease;
+}
+ 
+.glass-effect:focus,
+.glass-effect:active {
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn.glass-effect {
+    border: 2px solid rgba(100, 100, 100, 0.7);
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.btn.glass-effect:focus,
+.btn.glass-effect:active,
+.btn.glass-effect:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.search-result {
+    padding: 0.8rem 1.2rem;
+    color: black;
+    cursor: pointer;
+}
+
+.search-result:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-favorite {
+    border-radius: 15px;
+}
+
+.btn-favorite:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s;
+    border-radius: 15px;
+}
+
+.dropdown-menu.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(100, 100, 100, 0.7);
+    border-radius: 15px;
+}
+
+#favoritesList div {
+    padding: 0.8rem 1.2rem;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+ 
+#favoritesList div:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+section {
+    display: flex;
+    gap: 2rem; 
+    flex-direction: column;
+}
+
+section:nth-child(1),
+section:nth-child(3),
+section:nth-child(5) {
+    animation: scroller linear;  
+    animation-timeline: scroll(root); 
+    flex-direction: column-reverse;  
+    translate: 0% calc(-100% + 100vh);  
+}
+
+.city-card {
+    position: relative;
+    border-radius: 15px;  
+    overflow: hidden; 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    width: 100%;
+    aspect-ratio: 3/4; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  
+}
+
+.city-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    transition: all 0.3s ease;
+}
+
+.city-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    color:white;
+}
+
+.city-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.city-card:hover {
+    transform: scale(1.05);  
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
+}
+
+.city-card:hover img {
+    transform: scale(1.1);  
+}
+
+@keyframes scroller {
+    to {
+        translate: 0% calc(100% - 100vh); 
+    }
+}

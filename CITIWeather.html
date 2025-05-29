@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITIWeather Home Page</title>
+     <!-- Bootstrap 5.3.3 CSS - https://getbootstrap.com/ -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap Icons - https://icons.getbootstrap.com/-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/CITIWeather.css">
+      <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body>
+   
+    <div class="modal fade" id="popsup" tableindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center  d-flex flex-column align-items-center p-4">
+                    Scroll and click on the city-card or search up to see the weather!  
+                    <button type="button" class="btn btn-outline-light btn-md rounded-pill" data-bs-dismiss="modal" style="margin-top: 1em;">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+     
+        <div class="position-fixed top-4 start-50 translate-middle-x d-flex gap-3" style="z-index: 1000; width: 75%;">
+     
+            <input type="text" 
+                   class="form-control glass-effect" 
+                   placeholder="Search cities..." 
+                   id="citySearch">
+            
+    
+            <div id="searchResults" class="mt-2 w-100 d-none glass-effect rounded-3 position-absolute" style="top: 100%;">
+            </div>
+            
+            <button class="btn glass-effect text-white" type="button" data-bs-toggle="dropdown">
+                <i class="bi bi-star-fill text-white"></i>
+            </button>
+            <div class="dropdown-menu glass-effect p-2" style="width: 250px;">
+                <h6 class="text-black px-3 py-2">Favorite Cities</h6>
+                <div id="favoritesList">
+                    <i class="bi bi-star text-white"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+
+            <!-- All img downloads from Microsoft Edge -->
+            <section>
+                <div class="city-card">
+                    <img src="assets/img/new york.jpg" alt="New York" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">New York</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/london.jpg" alt="London" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">London</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/tokyo.jpg" alt="Tokyo" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Tokyo</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/sydney.jpg" alt="Sydney" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Sydney</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/paris.jpg" alt="Paris" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Paris</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/mumbai.jpg" alt="Mumbai" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Mumbai</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="city-card">
+                    <img src="assets/img/cape town.jpg" alt="Cape Town" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Cape Town</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/rio de janerio.jpg" alt="Rio de Janeiro" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Rio de Janeiro</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/moscow.jpg" alt="Moscow" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Moscow</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/beijing.jpg" alt="Beijing" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Beijing</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/berlin.jpg" alt="Berlin" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Berlin</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/toronto.jpg" alt="Toronto" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Toronto</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="city-card">
+                    <img src="assets/img/dubai.jpg" alt="Dubai" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Dubai</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/singapore.jpg" alt="Singapore" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Singapore</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/buenos aires.jpg" alt="Buenos Aires" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Buenos Aires</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/seoul.jpg" alt="Seoul" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Seoul</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/bangkok.jpg" alt="Bangkok" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Bangkok</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/los angeles.jpg" alt="Los Angeles" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Los Angeles</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="city-card">
+                    <img src="assets/img/mexico city.jpg" alt="Mexico City" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Mexico City</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/istanbul.jpg" alt="Istanbul" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Istanbul</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/jakarta.jpg" alt="Jakarta" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Jakarta</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/lagos.jpg" alt="Lagos" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Lagos</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/vienna.jpg" alt="Vienna" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Vienna</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/rome.jpg" alt="Rome" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Rome</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="city-card">
+                    <img src="assets/img/kuala lumpar.jpg" alt="Kuala Lumpur" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Kuala Lumpur</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/amsterdam.jpg" alt="Amsterdam" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Amsterdam</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/barcelona.jpg" alt="Barcelona" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Barcelona</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/madrid.jpg" alt="Madrid" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Madrid</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <img src="assets/img/halifax.jpg" alt="Halifax" class="img-fluid">
+                    <div class="city-info d-flex align-items-center justify-content-center">
+                        <h3 class="mb-0 me-2">Halifax</h3>
+                        <button class="btn-favorite bg-transparent border-0 p-0">
+                            <i class="bi bi-star text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+    </main>
+  
+
+  
+    
+    <script src="js/city.js"></script>
+</body>
+</html>
